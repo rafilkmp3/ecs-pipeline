@@ -8,7 +8,7 @@ data "template_file" "buildspec" {
     container_name = "${var.container_name}"
 
     # subnet_id          = "${var.run_task_subnet_id}"
-    security_group_ids = "${join(",",var.subnet_ids)}"
+    security_group_ids = "${join(",", var.subnet_ids)}"
   }
 }
 
@@ -26,10 +26,15 @@ resource "aws_codebuild_project" "app_build" {
     compute_type = "BUILD_GENERAL1_SMALL"
 
     // https://docs.aws.amazon.com/codebuild/latest/userguide/build-env-ref-available.html
-    image           = "aws/codebuild/docker:17.09.0"
+    image           = "aws/codebuild/standard:2.0"
     type            = "LINUX_CONTAINER"
     privileged_mode = true
   }
+  cache {
+    type  = "LOCAL"
+    modes = ["LOCAL_DOCKER_LAYER_CACHE", "LOCAL_SOURCE_CACHE"]
+  }
+
 
   source {
     type      = "CODEPIPELINE"

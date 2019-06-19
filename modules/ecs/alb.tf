@@ -9,7 +9,14 @@ resource "aws_alb_target_group" "api_target_group" {
   lifecycle {
     create_before_destroy = true
   }
-
+  deregistration_delay = 0
+  health_check {
+    healthy_threshold   = 2
+    interval            = 30
+    path                = "/healthcheck"
+    timeout             = 10
+    unhealthy_threshold = 2
+  }
   depends_on = ["aws_alb.app_alb"]
 }
 

@@ -1,10 +1,10 @@
 # Example VPC
 resource "aws_vpc" "cluster_vpc" {
-  cidr_block = "10.0.0.0/16" 
-  enable_dns_support = true
+  cidr_block           = "10.0.0.0/16"
+  enable_dns_support   = true
   enable_dns_hostnames = true
   tags = {
-    Name = "Cluster VPC"
+    Name = "${var.cluster_name} Cluster VPC"
   }
 }
 
@@ -12,8 +12,8 @@ resource "aws_vpc" "cluster_vpc" {
 resource "aws_internet_gateway" "gw" {
   vpc_id = "${aws_vpc.cluster_vpc.id}"
   tags {
-        Name = "InternetGateway"
-    }
+    Name = "InternetGateway"
+  }
 }
 
 # Route to Internet Gateway
@@ -25,6 +25,6 @@ resource "aws_route" "internet_access" {
 
 # Elastic IP
 resource "aws_eip" "vpc_eip" {
-  vpc      = true
+  vpc        = true
   depends_on = ["aws_internet_gateway.gw"]
 }

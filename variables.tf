@@ -7,30 +7,30 @@
 # Customize the Cluster Name
 variable "cluster_name" {
   description = "ECS Cluster Name"
-  default     = "web-app"
+  default     = "jurimetria-app"
 }
 
 # Customize your ECR Registry Name
 variable "app_repository_name" {
   description = "ECR Repository Name"
-  default     = "web-app"
+  default     = "jurimetria-app"
 }
 
 ###### APPLICATION OPTIONS  ######
 variable "container_name" {
   description = "Container app name"
-  default     = "micro-api"
+  default     = "jurimetria_api"
 }
 
 # Number of containers
 variable "desired_tasks" {
   description = "Number of containers desired to run app task"
-  default     = 2
+  default     = 1
 }
 
 variable "min_tasks" {
   description = "Minimum"
-  default     = 2
+  default     = 1
 }
 
 variable "max_tasks" {
@@ -69,7 +69,7 @@ variable "alb_port" {
 # Target Group Load Balancer Port
 variable "container_port" {
   description = "Destination Application Load Balancer Port"
-  default     = "80"
+  default     = "8888"
 }
 
 ###### GITHUB OPTIONS  ######
@@ -77,13 +77,13 @@ variable "container_port" {
 # Github Repository Owner
 variable "git_repository_owner" {
   description = "Github Repository Owner"
-  default     = "msfidelis"
+  default     = "timotta"
 }
 
 # Github Repository Project Name
 variable "git_repository_name" {
   description = "Project name on Github"
-  default     = "micro-api"
+  default     = "jurimetria-web"
 }
 
 # Default Branch
