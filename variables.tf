@@ -18,13 +18,13 @@ variable "app_repository_name" {
 
 ###### APPLICATION OPTIONS  ######
 variable "container_name" {
-  description = "Container app name"
+  description = "Container dev name"
   default     = "jurimetria_api"
 }
 
 # Number of containers
 variable "desired_tasks" {
-  description = "Number of containers desired to run app task"
+  description = "Number of containers desired to run dev task"
   default     = 1
 }
 
@@ -96,4 +96,10 @@ variable "git_repository_branch" {
 variable "aws_region" {
   description = "AWS Region for the VPC"
   default     = "us-east-1"
+}
+variable "app_url" {
+  description = "Public External API endpoint"
+}
+variable "sqlalchemy_database_uri" {
+  description = "Connection string 'mysql://username:password@localhost/db_name'"
 }

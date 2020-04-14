@@ -26,6 +26,10 @@ module "ecs" {
   desired_task_cpu    = "${var.desired_task_cpu}"
   desired_task_memory = "${var.desired_task_memory}"
 
+  sqlalchemy_database_uri = "${var.sqlalchemy_database_uri}"
+  app_url                 = "${var.app_url}"
+
+
   security_groups_ids = [
     "${module.vpc.app_sg_id}",
     "${module.vpc.alb_sg_id}",

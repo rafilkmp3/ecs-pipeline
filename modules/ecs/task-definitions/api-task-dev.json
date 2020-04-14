@@ -31,11 +31,7 @@
       },
       {
         "name": "APP_URL",
-        "value": "${app_url}"
-      },
-      {
-        "name": "SQLALCHEMY_DATABASE_URI",
-        "value": "${sqlalchemy_database_uri}"
+        "value": "https://d1zkuydgjg8r88.cloudfront.net/"
       },
       {
         "name": "PORT",

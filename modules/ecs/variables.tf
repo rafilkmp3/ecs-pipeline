@@ -79,3 +79,9 @@ variable "cpu_to_scale_up" {
 variable "cpu_to_scale_down" {
   description = "CPU % to Scale Down the number of containers"
 }
+variable "app_url" {
+  description = "Public External API endpoint"
+}
+variable "sqlalchemy_database_uri" {
+  description = "Connection string 'mysql://username:password@localhost/db_name'"
+}
